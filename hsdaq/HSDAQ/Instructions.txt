@@ -1,0 +1,127 @@
+*************************************************************
+* DAQ Board from Carl Harvey                                *
+* Contruction and testing instructions                      *
+* TESTED ON PIV 2,8MGhz(32BIT-SOFT),PI 300Mhz(16BIT-SOFT)   *
+*************************************************************
+
+This board is a prototype board that i've built from
+small circuit taken here and there on the internet and
+some of my creativity also. 
+
+I assume that you already have some basic knowlege to be able to build this hardware.
+If not then look for small Electronic kit on the net and once your comfortable with
+basic electronic pieces (diode,resistors,cap,ics). 
+
+TIPS: Make a search on the internet for learning parallel and ICs.
+Look in google for :
+-Parallel port description
+-Parallel port tutorial
+-IC communications
+
+Learn the CLOCK and DATA lines behavior to understand the interaction between pc and ICs.
+
+READ THE ICs DATASHEET !!!
+
+
+-------------------------
+Construction instruction.
+-------------------------
+
+
+Requirements:
+-------------------------
+1- The part list
+2- A bread board/perfored board
+3- power supply with +5v regulated
+4- visual basic 5.0, 6.0
+5- the file inpout32.dll (available on internet for free,google search the 'filename')
+6- Patience
+
+
+First try to build the unit piece by piece, e.g.(build only the part with the tlc1543)
+once this part all wired to parallel port triple check your wiring.
+Do the same for each part after tested each of them one by one.
+
+
+TESTING
+--------------------------
+Try the software provided, it test each of the part individually. if the fist you build and test doesnt work then its not because the hole board isn't fully mounted. Its most of the time 99% the wiring,the power supply not ,improper power supply,bad grounding,parallel port cable bad or too long or unconnected, all of these happend to me so thats why im telling you to triple check the wire and do it one by one.(Testing instruction bellow in each ICs description)
+
+
+GENERAL :
+--------------------------
+- Don't forget; the ground of your source must be grounded to the board
+- Try to keep CAP as neer as each IC vcc pin.
+- Add a led somewhere to see the current is ON
+- Don't take too long line(cable)
+- cable gage might be (22-24-26) 24 is perfect
+
+
+THE HARDWARE:
+--------------------------
+
+
+The TLC1543 : 
+-------------
+Apply a voltage to one of the analog input pin of the ic and run the software. Becarefull when testing the TLC1543 DON,T PUT MORE THAN THE REF+ VOLTAGE pin WHICH IN THIS CASE IS +5.03V DON'T PUT A 9V BATTERY OR YOULL DAMAGE SOMETHING I DON'T EVEN KNOW !!!
+
+The LM35 conversion is the temperature conversion for the IC lm35 which was connected to my proto board when i took the screen shot of the software.This Ic is an analog temperature sensor.
+__________________________
+
+
+
+The 74HC166
+--------------------------
+Apply a +5v to one of the digital input pin of the ic and run the software. You should see diferent
+values on the screen when on and when voltave removed. Thats it.
+
+It with this part that you get up to 64 input, keep in mind that applying +5v to one of the input pin makes it a high level (ON) and 0v (OFF) so you make an alarm system woth 64 damned zone ! with regular alarm sensors. etc.. imagination (buttons,switch...)
+__________________________
+
+
+
+The 74HC374
+--------------------------
+This one is easy simply run the softare and output one pin to high and test the output pin with a voltmeter.
+
+Or if you have already build the 74hc166 part then you can wire by example the first ouput pin of the 74hc374 to the first input pin of the 74hc166 and test both window at the same time and even discover that by doing this your are reading back the status of the first ouput pin of the 74hc374 which in fact a write only IC.Can do a lot with some little imagination.
+__________________________
+
+
+
+The ULN2803
+--------------------------
+This one is a relay driver, it will drive the GND line of the relays e.g (if you add a relay to one of the ouput of the ULN2803 this ouput line must be connected to the GND of relay coil.
+
+Otherwise it can be use for.... I don't know sorry...:(
+__________________________
+
+
+
+The DS1621
+--------------------------
+Wonderfull IC :) it gives you an I2C bus which the best start for learning I2C communication. It provide hight temp resolution and have an integrated alarm that makes one of its pin high when alarm is reached. The alarm can be set from computer. Othewize it give temperature just run the software and youll see.
+__________________________
+
+
+If your able to make run one its part the you are able to make run all of its part !
+
+
+If in any case it stiil doesn't want to work then email me you PC spec with a detailed picture
+of your protoborad and ill see what i can do for your.
+
+
+Ok thats it for now
+
+Have fun !
+
+
+
+By Carl Harvey.
+harveysolution@t2u.com
+
+
+
+
+
+
